@@ -19,7 +19,7 @@ ABS_FILE_PATH=$(realpath "$TARGET_FILE")
 FILENAME=$(basename "$ABS_FILE_PATH")
 
 TMP_DIR=$(mktemp -d -t sharefile.XXXXXX)
-ln -s "$ABS_FILE_PATH" "$TMP_DIR/$FILENAME"
+ln -s "$ABS_FILE_PATH" "$TMP_DIR/$FILENAME"  #This prevents Python from exposing your entire current folder to the network.
 
 # --- NEW TRAP LOGIC FOR CTRL+C ---
 cleanup() {
